@@ -9,3 +9,32 @@ Migrating to CreatePosts (20151230232412)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151230232412"]]
   [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started GET "/posts" for 127.0.0.1 at 2020-05-14 13:52:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (7.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 465ms (Views: 453.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-05-14 13:52:46 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"new"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=new):
+  
+app/controllers/posts_controller.rb:7:in `show'
+  Rendering /Users/kyletomanelli/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/kyletomanelli/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/kyletomanelli/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /Users/kyletomanelli/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/kyletomanelli/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/kyletomanelli/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/kyletomanelli/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/kyletomanelli/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.1ms)
